@@ -1,0 +1,92 @@
+EX 1 ==========================================
+def tri(a, b, c):
+    if a < abs(b+c) and b < abs(c+a) and c < abs(b+a):
+        if a == b and b == c:
+            return "equilátero"
+        elif a != b and b!= c:
+            return "escaleno"
+        else:
+            return "isóceles"
+    else:
+        return "Não é triângulo"
+
+while True:
+    
+    a = int(input("Insira o valor de a "))
+    b = int(input("Insira o valor de b "))
+    c = int(input("Insira o valor de c "))
+    
+    print(tri(a, b, c))
+    
+    input()
+
+EX 2 ==========================================
+while True:
+    ano = int(input('digite um ano: '))
+
+    if ano % 4 == 0 and ano % 100 != 0:
+        print('bissexto')
+    else:
+        print('não bissexto')
+
+
+EX 3 ==========================================
+pesoPeixes = float(input('Digite o peso total dos peixes: '))
+
+excedente = 0
+multa = 0
+
+if pesoPeixes > 50:
+    excedente = pesoPeixes - 50
+    multa = excedente * 4
+    
+print(f'Peso total: {pesoPeixes}')
+print(f'Peso excedente: {excedente}')
+print(f'Valor da multa: {multa}')
+
+EX 4 ==========================================
+x = []
+for i in range(3):
+    x.append(int(input(" ")))
+x.sort()
+print(x[2])
+
+EX 5 ==========================================
+x = []
+for i in range(3):
+    x.append(int(input(" ")))
+x.sort()
+print("Maior" +str(x[2]))
+print("Menor" +str(x[0]))
+
+EX 6 ==========================================
+h = int(input("Horas trabalhadas no mês "))
+vlh = int(input("Valor por hora "))
+
+salario = h * vlh
+
+IR = salario * 0.11
+INSS = salario * 0.08
+sindicato = salario * 0.05
+
+desconto = IR + INSS + sindicato
+
+print(salario)
+print(IR)
+print(INSS)
+print(sindicato)
+print(salario - desconto)
+
+EX 7 ==========================================
+areaPintada = int(input('metros quadrados da area a ser pintada: '))
+litros = areaPintada / 3
+quantidadeLatas = litros / 18
+
+if type(quantidadeLatas) == float:
+    quantidadeLatas = int(quantidadeLatas) + 1
+    precoTotal = quantidadeLatas * 80
+else:
+    precoTotal = quantidadeLatas * 80
+
+print('quantidade de latas de tinta: ', quantidadeLatas)
+print('preço total', precoTotal
