@@ -6,8 +6,8 @@
 # first_last6([1, 2, 6]) -> True
 # first_last6([6, 1, 2, 3]) -> True
 # first_last6([3, 2, 1]) -> False
-def first_last6(nums): #
-  return
+def first_last6(nums): 
+  return True if (nums[0] == 6 or nums[-1] == 6) else False
 
 # B. same_first_last #
 # retorna True se a lista nums
@@ -18,7 +18,7 @@ def first_last6(nums): #
 # same_first_last([1, 2, 3, 1]) -> True
 # same_first_last([1, 2, 1]) -> True
 def same_first_last(nums):
-  return 
+  return True if (len(nums)>=1 and nums[0] == nums[-1]) else False
 
 # C. common_end #
 # Dada duas listas a e b verifica se os dois primeiros são
@@ -30,7 +30,7 @@ def same_first_last(nums):
 # common_end([1, 2, 3], [7, 3, 2]) -> False
 # common_end([1, 2, 3], [1, 3]) -> True
 def common_end(a, b):
-  return 
+  return True if (a[0] == b[0] or a[-1] == b[-1]) else False
 
 # D. maior_ponta #
 # Dada uma lista não vazia, cria uma nova lista onde todos
@@ -39,14 +39,14 @@ def common_end(a, b):
 # maior_ponta([1, 2, 3]) -> [3, 3, 3]
 # maior_ponta([1, 3, 2]) -> [2, 2, 2]
 def maior_ponta(nums):
-  return
+  return [nums[0]]*len(nums) if nums[0] > nums[-1] else [nums[-1]]*len(nums)
 
 # E. sum2 #
 # Dada uma lista de inteiros de qualquer tamanho
 # retorna a soma dos dois primeiros elementos
 # se a lista tiver menos de dois elementos, soma o que for possível
 def sum2(nums):
-  return 
+  return sum(nums[:2])
 
 # F. middle_way #
 # sejam duas listas de inteiros a e b
