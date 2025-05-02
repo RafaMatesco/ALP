@@ -9,7 +9,7 @@
 # near_ten(17) -> False
 # near_ten(19) -> True
 def near_ten(n):
-  return 
+  return True if n%10 <= 2 or n%10 >= 8 else False
 
 # B. lone_sum
 # Soma maluca: some os números inteiros a, b, e c
@@ -18,7 +18,14 @@ def near_ten(n):
 # lone_sum(3, 2, 3) -> 2
 # lone_sum(3, 3, 3) -> 0
 def lone_sum(a, b, c):
-  return
+  if a == b == c:
+    return 0
+  
+  lista = [a,b,c]
+  for x in range(0,len(lista)):
+    if lista[x-1] == lista[x]:
+      return lista[x+1] if x+1 < len(lista) else lista[x-len(lista)+1]
+  return sum(lista[:])
     
 # C. luck_sum #
 # Soma três inteiros a, b, c
@@ -28,8 +35,14 @@ def lone_sum(a, b, c):
 # lucky_sum(1, 2, 13) -> 3
 # lucky_sum(1, 13, 3) -> 1
 def lucky_sum(a, b, c):
-  return
-
+  lista = [a,b,c]
+  soma = 0
+  for x in range(0,len(lista)):
+    if lista[x] == 13:
+      break
+    soma += lista[x]
+  return soma
+    
 # D. double_char #
 # retorna os caracteres da string original duplicados
 # double_char('The') -> 'TThhee'
