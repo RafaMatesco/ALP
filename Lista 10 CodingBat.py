@@ -49,7 +49,11 @@ def lucky_sum(a, b, c):
 # double_char('AAbb') -> 'AAAAbbbb'
 # double_char('Hi-There') -> 'HHii--TThheerree'
 def double_char(s):
-  return
+  s = list(s)
+  for x in range(0, len(s)):
+    s[x] = s[x] + s[x]
+  s = ''.join(s)
+  return s 
 
 # E. count_hi #
 # conta o número de vezes que aparece a string 'hi'
@@ -57,7 +61,7 @@ def double_char(s):
 # count_hi('ABChi hi') -> 2
 # count_hi('hihi') -> 2
 def count_hi(s):
-  return 
+  return s.count('hi')
 
 # F. cat_dog #
 # verifica se o aparece o mesmo número de vezes 'cat' e 'dog'
@@ -65,7 +69,7 @@ def count_hi(s):
 # cat_dog('catcat') -> False
 # cat_dog('1cat1cadodog') -> True
 def cat_dog(s):
-  return
+  return True if s.count('cat') == s.count('dog') else False
 
 # G. count_code #
 # conta quantas vezes aparece 'code'
@@ -75,8 +79,13 @@ def cat_dog(s):
 # count_code('codexxcode') -> 2
 # count_code('cozexxcope') -> 2
 def count_code(s):
-  return 
-
+  s = list(s)
+  counter = 0
+  for x in range(len(s)-1, 1, -1):
+    if s[x] == 'e' and s[x-3] + s[x-2] == 'co':
+      counter += 1
+  return counter
+  
 # H. end_other #
 # as duas strings devem ser convertidas para minúsculo via lower()
 # depois disso verifique que no final da string b ocorre a string a
@@ -85,7 +94,9 @@ def count_code(s):
 # end_other('AbC', 'HiaBc') -> True
 # end_other('abc', 'abXabc') -> True
 def end_other(a, b):
-  return
+  a = a.lower()
+  b = b.lower()
+  return True if a.endswith(b) or b.endswith(a) else False
 
 # I. count_evens
 # conta os números pares da lista
@@ -93,7 +104,7 @@ def end_other(a, b):
 # count_evens([2, 2, 0]) -> 3
 # count_evens([1, 3, 5]) -> 0
 def count_evens(nums):
-  return 
+  return len([x for x in nums if x % 2 == 0])
 
 # J. sum13 #
 # retorna a soma dos números de uma lista
@@ -103,6 +114,12 @@ def count_evens(nums):
 # sum13([1, 2, 2, 1, 13]) -> 6
 # sum13([13, 1, 2, 3, 4]) -> 0
 def sum13(nums):
+  soma = 0
+  for x in range(0,len(nums)):
+    if nums[x] == 13:
+      break
+    soma += nums[x]
+  return soma
   return 
 
 # K. has22 #
@@ -111,7 +128,10 @@ def sum13(nums):
 # has22([1, 2, 1, 2]) -> False
 # has22([2, 1, 2]) -> False
 def has22(nums):
-  return
+  for x in range(0,len(nums)-1):
+    if nums[x] == 2 and nums[x+1] == 2:
+      return True
+  return False
 
 # L. soma_na_lista #
 # Verifica se um número é soma de dois elementos distintos de uma lista
@@ -122,7 +142,11 @@ def has22(nums):
 # soma_na_lista(4, [2, 2, 2, 2]) -> False
 # soma_na_lista(4, [2, 2, 1, 3]) -> True
 def soma_na_lista(n, lista):
-  return
+  for x in range(len(lista)):
+    for y in range(len(lista)):
+      if x != y and lista[x] != lista[y] and lista[x] + lista[y] == n:
+        return True
+  return False
 
 # M.Difícil: Fila de tijolos sem usar loops #
 # queremos montar uma fila de tijolos de um tamanho denominado meta
@@ -133,7 +157,7 @@ def soma_na_lista(n, lista):
 # fila_tijolos(3, 1, 9) -> False
 # fila_tijolos(3, 2, 10) -> True
 def fila_tijolos(n_peq, n_gra, meta):
-  return
+  return n_peq >= meta % 5 and n_peq + 5 * n_gra >= meta
 
 # Provided simple test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
