@@ -54,9 +54,9 @@ for y in range(0,10):
     
 for x in range(0,20):
     if x % 2 == 0:
-        vetor3.append(vetor1[int(x/2)])
+        vetor3.append(vetor1[x//2])
     else:
-        vetor3.append(vetor2[int(x/2)])
+        vetor3.append(vetor2[x//2])
 
 print(vetor1)
 print(vetor2)

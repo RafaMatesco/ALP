@@ -89,4 +89,4 @@ else:
     precoTotal = quantidadeLatas * 80
 
 print('quantidade de latas de tinta: ', quantidadeLatas)
-print('preço total', precoTotal
+print('preço total', precoTotal)
