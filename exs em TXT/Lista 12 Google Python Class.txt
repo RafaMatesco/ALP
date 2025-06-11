@@ -37,25 +37,25 @@ def not_bad(s):
 # Dadas 2 strings, a e b, retorna a string
 #  a_inicio + b_inicio + a_final + b_final
 def inicio_final(a, b):
-  a_meio = len(a) // 2
-  b_meio = len(b) // 2
-  if len(a) % 2 == 1:  # aumenta 1 se len é impar
-    a_meio = a_meio + 1
+  meioA = len(a) // 2
+  meioB = len(b) // 2
+  if len(a) % 2 == 1:
+    meioA = meioA + 1
   if len(b) % 2 == 1:
-    b_meio = b_meio + 1 
-  return a[:a_meio] + b[:b_meio] + a[a_meio:] + b[b_meio:]
+    meioB = meioB + 1 
+  return a[:meioA] + b[:meioB] + a[meioA:] + b[meioB:]
 
 # J. zeros finais
 # Verifique quantos zeros há no final de um número inteiro positivo
 # Exemplo: 10010 tem 1 zero no fim e 908007000 possui três
 def zf(n):
-  n = str(n)[::-1]
-  k = 0
-  while n[k] == '0':
-    k = k + 1
-  return k
-  a = int(str(n)[::-1])
-  return len(str(n)) - len(str(a))
+  n = str(n)
+  zeros = 0
+  for x in range(len(n)-1, 0, -1):
+    if n[x] == '0':
+      zeros += 1
+    else: break
+  return zeros
 
 # K. conta 2
 # Verifique quantas vezes o dígito 2 aparece entre 0 e n-1
@@ -63,7 +63,7 @@ def zf(n):
 def conta2(n):
   s = ''
   for i in range(n):
-    s = s + str(i)
+    s += str(i)
   return s.count('2')
 
 # L. inicio em potencia de 2
